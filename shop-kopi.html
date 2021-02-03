@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <title>Menu</title>
+    <meta name=”robots” content=”noindex”>
+    <link rel="stylesheet" href="f2dstyler.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+    <div class="container">
+        <div class="etlogo"><img src="f2dawg.png"></div>
+        <!-- nav  -->
+        <div class="navbar">
+            <div class="nav-toggle">
+                <div class="burger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="lars">
+        <div class="nav">
+            <div class="nav-items">
+                <div class="nav-item">
+                    <a href="landingpage2.html">Home</a>
+                    <div class="nav-item-wrapper"></div>
+                </div>
+                <div class="nav-item">
+                    <a href="tester.html">LOOKBOOK</a>
+                    <div class="nav-item-wrapper"></div>
+                </div>
+                <div class="nav-item">
+                    <a href="#">ABOUT US</a>
+                    <div class="nav-item-wrapper"></div>
+                </div>
+                <div class="nav-item">
+                    <a href="#">STORE</a>
+                    <div class="nav-item-wrapper"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="afstedmand">
+        <section class="ret">
+
+            <div id="singleviewz">
+                <div></div>
+                <img src="" alt="" id="produktet">
+                <div class="rightcol">
+                    <h2></h2>
+                    <p id="short_text"></p>
+                    <p id="price"></p>
+                </div>
+            </div>
+
+        </section>
+    </section>
+    <script>
+        let urlParams = new URLSearchParams(window.location.search);
+        console.log(urlParams);
+        let id = urlParams.get("id");
+        document.addEventListener("DOMContentLoaded", getTheContent);
+
+
+        async function getTheContent() {
+            let pods;
+            let url = "http://www.futuravisuals.dk/kea/2SEM/Eksamensprojekt/wordpress/wp-json/wp/v2/produkter/" + id;
+            let jsonData = await fetch(url);
+            pods = await jsonData.json();
+            document.querySelector("h2").textContent = pods.tekst;
+            document.querySelector("#price").textContent = pods.pris;
+            document.querySelector("#short_text").textContent = pods.lookbooktekst;
+            document.querySelector("#produktet").src = pods.billlede.guid;
+            console.log(url);
+        }
+
+
+        var t1 = new TimelineMax({
+            paused: true
+        });
+
+        t1.to(".nav", 1.8, {
+            width: "94%",
+            ease: Expo.easeInOut,
+        });
+
+        t1.staggerTo(".nav-item a", 0.6, {
+            top: "0px",
+            ease: Expo.easeInOut
+        }, 0.1, "-=0.8");
+
+        t1.reverse();
+        $(document).on("click", ".nav-toggle", function() {
+            t1.reversed(!t1.reversed());
+        });
+
+        $(document).on("click", ".nav-item a", function() {
+            t1.reversed(!t1.reversed());
+        });
+
+        // const erklære en variabel med værdien burger, nav-links, nav-links li///
+        const burger = document.querySelector('.burger');
+        const nav = document.querySelector('.nav-toggle');
+
+
+
+        burger.addEventListener('click', () => {
+            //Toggle Nav
+            nav.classList.toggle('toggle');
+
+
+
+            //Burger Animation (her fjernes eller påsættes toggle-klassen fra css)
+            burger.classList.toggle('toggle');
+
+
+
+        });
+
+    </script>
+</body>
+
+</html>
