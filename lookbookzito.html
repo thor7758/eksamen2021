@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lookbook</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/simple-parallax-js@5.0.2/dist/simpleParallax.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div class="header">
+        <a href="index.html">
+            <div class="etlogo"><img src="f2dawg.png">
+            </div>
+        </a>
+        <!-- nav  -->
+        <div class="navbar">
+            <div class="nav-toggle">
+                <div class="burger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="burgershow">
+        <div class="nav">
+            <div class="nav-items">
+                <div class="nav-item">
+                    <a href="landingpage2.html">Home</a>
+                    <div class="nav-item-wrapper"></div>
+                </div>
+                <div class="nav-item">
+                    <a href="tester.html">LOOKBOOK</a>
+                    <div class="nav-item-wrapper"></div>
+                </div>
+                <div class="nav-item">
+                    <a href="#">ABOUT US</a>
+                    <div class="nav-item-wrapper"></div>
+                </div>
+                <div class="nav-item">
+                    <a href="#">STORE</a>
+                    <div class="nav-item-wrapper"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="overskrift">
+        <h1>F2D&nbsp;</h1>
+        <h1 class="overskriftdelto"> LOOKBOOK 2020</h1>
+
+    </div>
+
+    <section id="lookbook-splash">
+        <div id="lookbook-video">
+            <video controls>
+                <source src="f2dvideo16-9.mp4" type="video/mp4">
+            </video>
+        </div>
+    </section>
+
+    <div id="container">
+        <div class="farvedeler">
+            <div class="look_wrapper">
+                <div class="left">
+                    <img src="" alt="" class="billedelook">
+                </div>
+                <div class="right">
+                    <h2 class="look-titel"></h2>
+                    <p class="look-tekst"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <template>
+        <div class="farvedeler">
+            <div class="look_wrapper">
+                <div class="left">
+                    <img src="" alt="" class="billedelook">
+                </div>
+                <div class="right">
+                    <h2 class="look-titel"></h2>
+                    <p class="look-tekst"></p>
+                </div>
+            </div>
+        </div>
+    </template>
+
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", getTheContent);
+
+
+        async function getTheContent() {
+            let pods;
+            let temp = document.querySelector("template");
+            let url = "http://www.futuravisuals.dk/kea/2SEM/Eksamensprojekt/wordpress/wp-json/wp/v2/lookbook/";
+            let jsonData = await fetch(url);
+            pods = await jsonData.json();
+
+            pods.forEach(pod => {
+                let klon = temp.cloneNode(true).content;
+                klon.querySelector(".look-titel").textContent = pod.titel;
+                klon.querySelector(".billedelook").src = pod.billede.guid;
+                klon.querySelector(".look-tekst").textContent = pod.lookbookteksten;
+
+                container.appendChild(klon);
+                console.log(pod.overskrift);
+            })
+
+        }
+
+    </script>
+
+    <script type=text/javascript>
+        var image = document.getElementsByClassName('b1');
+        new simpleParallax(image, {
+            scale: 1.8
+        });
+
+        var image = document.getElementsByClassName('b2');
+        new simpleParallax(image, {
+            scale: 1.6,
+            orientation: 'left'
+        });
+
+        var image = document.getElementsByClassName('b3');
+        new simpleParallax(image, {
+            scale: 1.8,
+            orientation: 'down'
+        });
+
+    </script>
+
+    <script>
+        let atScroll = false;
+        let parallaxTitle = document.querySelectorAll(".parallax-title");
+
+        const scrollProgress = () => {
+            atScroll = true;
+        };
+
+        const trap = () => {
+            if (atScroll) {
+                parallaxTitle.forEach((element, index) => {
+                    element.style.transform = "translateX(" + window.scrollY / 5 + "%)";
+                });
+                atScroll = false;
+            }
+            requestAnimationFrame(trap);
+        };
+
+        requestAnimationFrame(trap);
+        window.addEventListener("scroll", scrollProgress);
+
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+
+    <script>
+        var t1 = new TimelineMax({
+            paused: true
+        });
+
+        t1.to(".nav", 1.8, {
+            width: "94%",
+            ease: Expo.easeInOut,
+        });
+
+        t1.staggerTo(".nav-item a", 0.6, {
+            top: "0px",
+            ease: Expo.easeInOut
+        }, 0.1, "-=0.8");
+
+        t1.reverse();
+        $(document).on("click", ".nav-toggle", function() {
+            t1.reversed(!t1.reversed());
+        });
+
+        $(document).on("click", ".nav-item a", function() {
+            t1.reversed(!t1.reversed());
+        });
+
+
+        // const erklære en variabel med værdien burger, nav-links, nav-links li///
+        const burger = document.querySelector('.burger');
+        const nav = document.querySelector('.nav-toggle');
+
+
+
+        burger.addEventListener('click', () => {
+            //Toggle Nav
+            nav.classList.toggle('toggle');
+
+
+
+            //Burger Animation (her fjernes eller påsættes toggle-klassen fra css)
+            burger.classList.toggle('toggle');
+
+        });
+
+    </script>
+</body>
+
+</html>

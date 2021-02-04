@@ -1,5 +1,9 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
-    background: url(graatekstur.jpg);
+    background-color: rgba(227, 227, 227, 0.22);
     margin: 0;
 }
 
@@ -169,20 +173,22 @@ body {
 
 
 .retter {
+    text-align: center;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-    grid-gap: 30px;
-    margin-right: 8vw;
-    margin-top: 5vw;
-    margin-bottom: 5vw;
-    margin-left: 5vw;
+    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1 fr));
+    max-width: 1400px;
+    margin: 0 auto;
+    margin-top: 150px;
 }
 
 
 
+
 .ret img {
-    width: 100%;
-    height: 650px;
+    max-width: 400px;
+    height: auto;
+    object-fit: contain;
 }
 
 .ret h2 {
@@ -193,11 +199,21 @@ body {
     font-size: 3em;
     font-weight: 800;
     text-transform: uppercase;
+    text-align: center;
 }
 
 .ret p {
     color: white;
     font-family: 'Poppins', sans-serif;
+}
+
+#price {
+    margin: 0;
+}
+
+#klikker {
+    font-size: 1em;
+    color: black;
 }
 
 .jens_ole {
@@ -208,20 +224,23 @@ body {
     padding-top: 20px;
     flex-direction: row;
     width: 100%;
+    height: 80px;
     top: 10vh;
-    background-color: rgb(255, 255, 255);
     flex-wrap: wrap;
+
 }
 
 .jens_ole:hover {}
 
 .jens_ole h3 {
     margin-right: 12px;
+    margin-top: 0;
     cursor: pointer;
     padding: 10px;
     color: orange;
     font-family: 'Montserrat', sans-serif;
-    font-size: 3em;
+    font-size: 2em;
+
 
 }
 
@@ -237,6 +256,7 @@ body {
     font-size: 0.9em;
     margin: 10px;
     background-color: white;
+
 }
 
 .ret h2 {
@@ -266,12 +286,12 @@ body {
 
 
 #singleviewz {
-    width: 1400px;
     margin: 0 auto;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-
+    justify-content: center;
+    align-items: center;
 }
 
 #afstedmand .ret {
@@ -279,19 +299,17 @@ body {
     position: relative;
     top: 10vh;
     padding: 0;
-    margin-top: 0;
+    max-width: 100%;
 }
 
 #singleviewz img {
-    width: 600px;
+    max-width: 700px;
     height: auto;
 }
 
 #singleviewz .rightcol {
     top: 20vh;
-    position: relative;
-    height: 800px;
-    justify-content: center;
+
 }
 
 #short_text {
@@ -301,21 +319,7 @@ body {
 
 
 
-@media (max-width: 990px) {
-    .filter_nav {}
 
-    .retter {
-        margin-left: 5vw;
-    }
-
-    .retter {
-        margin-top: 10vh;
-    }
-
-    #singleviewz {
-        flex-direction: column;
-    }
-}
 
 @media (max-width: 990px) {
 
@@ -343,9 +347,41 @@ body {
 
     .jens_ole {
         min-width: 100%;
+        height: 120px;
     }
 
     .jens_ole h3 {
         font-size: 1.2em;
+    }
+}
+
+@media screen and (min-width:768px) {
+
+    .ret {
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 960px;
+        margin: 0 auto;
+
+    }
+
+    .retter {
+        display: grid;
+        grid-gap: 30px;
+        align-content: center;
+        grid-template-columns: repeat(3, 1fr)
+    }
+
+}
+
+@media (max-width: 990px) {
+    .filter_nav {}
+
+
+    .retter {
+        margin-top: 10vh;
+    }
+
+    #singleviewz {
+        flex-direction: column;
     }
 }

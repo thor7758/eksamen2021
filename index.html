@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="DA">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+
+
+    <div class="header">
+        <a href="landingpage2-kopi.html">
+            <div class="etlogo"><img src="f2dawg.png">
+            </div>
+        </a>
+        <!-- nav  -->
+        <div class="navbar">
+            <div class="nav-toggle">
+                <div class="burger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="burgershow">
+        <div class="nav">
+            <div class="nav-items">
+                <div class="nav-item">
+                    <a href="index.html">Home</a>
+                    <div class="nav-item-wrapper"></div>
+                </div>
+                <div class="nav-item">
+                    <a href="lookbookzito.html">LOOKBOOK</a>
+                    <div class="nav-item-wrapper"></div>
+                </div>
+                <div class="nav-item">
+                    <a href="#">ABOUT US</a>
+                    <div class="nav-item-wrapper"></div>
+                </div>
+                <div class="nav-item">
+                    <a href="#">STORE</a>
+                    <div class="nav-item-wrapper"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="splash">
+
+        <div class="container-img">
+            <img class="image" src="f2d.jpg" alt="f2dz">
+        </div>
+
+        <div class="forsidetekst">
+            <h1 class="forsidetekst1">F2D</h1>
+            <h1 class="forsidetekst2">Clothing</h1>
+        </div>
+
+        <div class="forsideekstra">
+            <div class="aarstal">2021</div>
+            <div class="lookbooklink"><a href="lookbook.html">- LOOKBOOK</a></div>
+        </div>
+    </section>
+
+
+    <section id="bunden">
+        <div id="farvebox">
+            <div id="containeren">
+                <img src="f2d.jpg" alt="attributer">
+                <img src="f2d.jpg" alt="attributer">
+                <img src="f2d.jpg" alt="attributer">
+            </div>
+
+
+
+            <div id="sectionwrapper">
+                <div class="hoejreside">
+                    <video loop autoplay muted>
+                        <source src="eyesf2d.mp4" type="video/mp4" id="videos" muted autoplay>
+                    </video>
+                </div>
+                <div class="venstreside">
+                    <h2 class="overhoved">Swagzito</h2><br>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis, reprehenderit officia, officiis quod accusantium temporibus repudiandae saepe debitis voluptatibus consectetur aut eos impedit. Deserunt nesciunt omnis expedita consequuntur illo facere recusandae quidem eos eligendi dignissimos, officia explicabo iusto enim reiciendis adipisci, eveniet laudantium numquam. Debitis mollitia dolorem cupiditate suscipit? Tempora soluta, earum vitae maxime illo mollitia asperiores nobis quia hic non, odio assumenda libero similique omnis architecto sed laborum voluptatem eligendi voluptatibus maiores molestiae neque. Porro corrupti doloremque, nesciunt magni quas eaque architecto, necessitatibus voluptates ex eum cupiditate quae maiores fugit mollitia velit accusamus, tempora. Quos facere sunt, cupiditate ut.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+    <script>
+        var t1 = new TimelineMax({
+            paused: true
+        });
+
+        t1.to(".nav", 1.8, {
+            width: "94%",
+            ease: Expo.easeInOut,
+        });
+
+        t1.staggerTo(".nav-item a", 0.6, {
+            top: "0px",
+            ease: Expo.easeInOut
+        }, 0.1, "-=0.8");
+
+        t1.reverse();
+        $(document).on("click", ".nav-toggle", function() {
+            t1.reversed(!t1.reversed());
+        });
+
+        $(document).on("click", ".nav-item a", function() {
+            t1.reversed(!t1.reversed());
+        });
+
+        // const erklære en variabel med værdien burger, nav-links, nav-links li///
+        const burger = document.querySelector('.burger');
+        const nav = document.querySelector('.nav-toggle');
+
+
+
+        burger.addEventListener('click', () => {
+            //Toggle Nav
+            nav.classList.toggle('toggle');
+
+
+
+            //Burger Animation (her fjernes eller påsættes toggle-klassen fra css)
+            burger.classList.toggle('toggle');
+
+
+
+        });
+
+    </script>
+</body>
+
+</html>
