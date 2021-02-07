@@ -8,8 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css
-">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 </head>
@@ -42,20 +41,28 @@
                     <div class="nav-item-wrapper"></div>
                 </div>
                 <div class="nav-item">
-                    <a href="lookbookzito.html">LOOKBOOK</a>
-                    <div class="nav-item-wrapper"></div>
-                </div>
-                <div class="nav-item">
-                    <a href="about_us.html">ABOUT US</a>
+                    <a href="lookbook.html">LOOKBOOK</a>
                     <div class="nav-item-wrapper"></div>
                 </div>
                 <div class="nav-item">
                     <a href="produkter.html">PRODUCTS</a>
                     <div class="nav-item-wrapper"></div>
                 </div>
+                <div class="nav-item">
+                    <a href="about_us.html">ABOUT US</a>
+                    <div class="nav-item-wrapper"></div>
+                </div>
+
             </div>
         </div>
     </div>
+
+    <div id="arrowdown">
+        <p class="scrolltext">Scroll Down</p>
+        <p class="arrow">↓</p>
+    </div>
+
+
 
     <section id="splash">
 
@@ -72,7 +79,7 @@
 
         <div class="forsideekstra">
             <div class="aarstal">2021</div>
-            <div class="lookbooklink"><a href="lookbookzito.html">- LOOKBOOK</a></div>
+            <div class="lookbooklink"><a href="lookbookzito.html">LOOKBOOK</a></div>
         </div>
     </section>
 
@@ -90,20 +97,20 @@
             <div id="sectionwrapper">
                 <div class="hoejreside">
                     <video loop autoplay muted>
-                        <source src="eyesf2d.mp4" type="video/mp4" id="videos" muted autoplay>
+                        <source src="eyesf2d.mp4" type="video/mp4" id="videos">
                     </video>
                 </div>
-                <div class="venstreside">
-                    <h2 class="overhoved">Swagzito</h2><br>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis, reprehenderit officia, officiis quod accusantium temporibus repudiandae saepe debitis voluptatibus consectetur aut eos impedit. Deserunt nesciunt omnis expedita consequuntur illo facere recusandae quidem eos eligendi dignissimos, officia explicabo iusto enim reiciendis adipisci, eveniet laudantium numquam. Debitis mollitia dolorem cupiditate suscipit? Tempora soluta, earum vitae maxime illo mollitia asperiores nobis quia hic non, odio assumenda libero similique omnis architecto sed laborum voluptatem eligendi voluptatibus maiores molestiae neque. Porro corrupti doloremque, nesciunt magni quas eaque architecto, necessitatibus voluptates ex eum cupiditate quae maiores fugit mollitia velit accusamus, tempora. Quos facere sunt, cupiditate ut.</p>
-                </div>
-
             </div>
         </div>
     </section>
 
 
-
+    <template>
+        <div id="venstreside">
+            <h2 class="overhoved"></h2>
+            <p class="bundtekst"></p>
+        </div>
+    </template>
 
     <footer class="footeren">
 
@@ -114,7 +121,7 @@
             <p class="footer-links">
                 <a href="index.html">Home</a>
                 ·
-                <a href="lookbookzito.html">Lookbook</a>
+                <a href="lookbook.html">Lookbook</a>
                 ·
                 <a href="produkter.html">Products</a>
                 ·
@@ -160,6 +167,28 @@
 
 
     <script>
+        document.addEventListener("DOMContentLoaded", getTheContent);
+
+
+        async function getTheContent() {
+            let temp = document.querySelector("template");
+            const container = document.querySelector("#sectionwrapper")
+            let url = "http://www.futuravisuals.dk/kea/2SEM/Eksamensprojekt/wordpress/wp-json/wp/v2/forside/";
+            let jsonData = await fetch(url);
+            let pods = await jsonData.json();
+
+            pods.forEach(pod => {
+                let klon = temp.cloneNode(true).content;
+                klon.querySelector(".overhoved").textContent = pod.titel;
+                klon.querySelector(".bundtekst").innerHTML = pod.content.rendered;
+
+                container.appendChild(klon);
+                console.log(pod.overskrift);
+            })
+
+        }
+
+
         var t1 = new TimelineMax({
             paused: true
         });

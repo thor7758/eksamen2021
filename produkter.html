@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <title>Produkter</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
@@ -36,17 +37,18 @@
                     <div class="nav-item-wrapper"></div>
                 </div>
                 <div class="nav-item">
-                    <a href="lookbookzito.html">LOOKBOOK</a>
-                    <div class="nav-item-wrapper"></div>
-                </div>
-                <div class="nav-item">
-                    <a href="about_us.html">ABOUT US</a>
+                    <a href="lookbook.html">LOOKBOOK</a>
                     <div class="nav-item-wrapper"></div>
                 </div>
                 <div class="nav-item">
                     <a href="produkter.html">PRODUCTS</a>
                     <div class="nav-item-wrapper"></div>
                 </div>
+                <div class="nav-item">
+                    <a href="about_us.html">ABOUT US</a>
+                    <div class="nav-item-wrapper"></div>
+                </div>
+
             </div>
         </div>
     </div>
@@ -66,8 +68,8 @@
         <div class="grid">
             <h2 class="produkt_titel"></h2>
             <img class="produkt_billede" src="" alt="">
-            <p class="kort"></p>
-            <p class="pris">kr </p>
+            <p class="materiale"></p>
+            <p class="pris"></p>
         </div>
 
     </template>
@@ -80,13 +82,13 @@
             <h3>F2D.COM</h3>
 
             <p class="footer-links">
-                <a href="#">Home</a>
+                <a href="index.html">Home</a>
                 ·
-                <a href="#">Lookbook</a>
+                <a href="lookbook.html">Lookbook</a>
                 ·
-                <a href="#">Products</a>
+                <a href="produkter.html">Products</a>
                 ·
-                <a href="#">About us</a>
+                <a href="about_us.html">About us</a>
 
             </p>
 
@@ -137,9 +139,9 @@
             pods.forEach(pod => {
                 let klon = temp.cloneNode(true).content;
                 klon.querySelector(".produkt_titel").textContent = pod.titel;
-                klon.querySelector(".kort").textContent = pod.shoptekst;
                 klon.querySelector(".produkt_billede").src = pod.billede.guid;
                 klon.querySelector(".pris").textContent = pod.pris;
+                klon.querySelector(".materiale").textContent = pod.punktform;
 
                 console.log(pod.overskrift);
                 klon.querySelector(".grid").addEventListener("click", function() {

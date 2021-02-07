@@ -1,22 +1,28 @@
 <!DOCTYPE html>
-<html lang="dk">
+<html lang="DA">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>lookbook</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css
+">
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/simple-parallax-js@5.0.2/dist/simpleParallax.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
 
-
-    <div class="container">
+    <div class="header">
+        <a href="index.html">
+            <div class="etlogo"><img src="f2dawg.png">
+            </div>
+        </a>
         <!-- nav  -->
         <div class="navbar">
             <div class="nav-toggle">
@@ -29,24 +35,23 @@
         </div>
     </div>
 
-
-    <div class="lars">
+    <div class="burgershow">
         <div class="nav">
             <div class="nav-items">
                 <div class="nav-item">
-                    <a href="landingpage2.html">Home</a>
+                    <a href="index.html">HOME</a>
                     <div class="nav-item-wrapper"></div>
                 </div>
                 <div class="nav-item">
-                    <a href="tester.html">LOOKBOOK</a>
+                    <a href="lookbook.html">LOOKBOOK</a>
                     <div class="nav-item-wrapper"></div>
                 </div>
                 <div class="nav-item">
-                    <a href="#">ABOUT US</a>
+                    <a href="produkter.html">PRODUCTS</a>
                     <div class="nav-item-wrapper"></div>
                 </div>
                 <div class="nav-item">
-                    <a href="#">STORE</a>
+                    <a href="about_us.html">ABOUT US</a>
                     <div class="nav-item-wrapper"></div>
                 </div>
             </div>
@@ -54,78 +59,136 @@
     </div>
 
 
+    <div class="overskrift">
+        <h1>F2D&nbsp;</h1>
+        <h1 class="overskriftdelto"> LOOKBOOK 2020</h1>
+    </div>
+
     <section id="lookbook-splash">
-
-    </section>
-
-    <section id="tops">
-        <div class="main ging">
-            <div class="section_wrapper_left">
-                <div class="billede 1">
-                    <img src="01.jpg" class="b1" alt="flot">
-                </div>
-                <h1 class="text">
-                    <span class="parallax-title">GINGGANG</span>
-                </h1>
-            </div>
-            <div class="section_wrapper_right">
-                <div class="logo">
-                    <img src="f2dlogozito.png" class="blogo" alt="flot2">
-                </div>
-            </div>
+        <div id="lookbook-video">
+            <video controls>
+                <source src="f2dvideo16-9.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div id="arrowdown">
+            <p class="scrolltext">Scroll Down</p>
+            <p class="arrow">↓</p>
         </div>
     </section>
 
-    <section id="mids">
-        <div class="main gang">
-            <div class="section_wrapper_left">
-                <div class="tekst" data-tilt>
-                    <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tempus, arcu a tempus iaculis, turpis justo sagittis ante, fermentum iaculis dui ante vitae erat. Vivamus sodales auctor ex sed dignissim.</h2>
-                </div>
-            </div>
-            <div class="section_wrapper_right">
-                <div class="billede 2">
-                    <img src="04.jpg" class="b2" alt="flot">
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <section id="bots">
-        <div class="main gung">
-            <div class="section_wrapper_left">
-                <div class="billede 3">
-                    <img src="07.jpg" class="b3" alt="flot">
-                </div>
 
-            </div>
-            <div class="section_wrapper_right">
-                <div class="tekst" data-tilt>
-                    <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tempus, arcu a tempus iaculis, turpis justo sagittis ante, fermentum iaculis dui ante vitae erat. Vivamus sodales auctor ex sed dignissim.</h2>
+    <div id="container">
+
+    </div>
+
+
+
+
+    <template>
+        <div class="farvedeler">
+            <div class="look_wrapper">
+                <div class="left">
+                    <img src="" alt="" class="billedelook">
+                </div>
+                <div class="right">
+                    <h2 class="look-titel"></h2>
+                    <p class="look-tekst"></p>
                 </div>
             </div>
         </div>
-    </section>
+    </template>
 
-    <script type=text/javascript>
-        var image = document.getElementsByClassName('b1');
-        new simpleParallax(image, {
-            scale: 1.8
-        });
+    <footer class="footeren">
 
-        var image = document.getElementsByClassName('b2');
-        new simpleParallax(image, {
-            scale: 1.6,
-            orientation: 'left'
-        });
+        <div class="footer-venstre">
 
-        var image = document.getElementsByClassName('b3');
-        new simpleParallax(image, {
-            scale: 1.8,
-            orientation: 'down'
-        });
+            <h3>F2D.COM</h3>
+
+            <p class="footer-links">
+                <a href="index.html">Home</a>
+                ·
+                <a href="lookbook.html">Lookbook</a>
+                ·
+                <a href="produkter.html">Products</a>
+                ·
+                <a href="about_us.html">About us</a>
+
+            </p>
+
+
+        </div>
+
+        <div class="footer-midt">
+
+            <div>
+                <i class="fa fa-map-marker"></i>
+                <p><span>Jagtvej 59, 2200</span> Copenhagen, Denmark</p>
+            </div>
+
+
+
+            <div>
+                <i class="fa fa-envelope"></i>
+                <p><a href="mailto:f2d@fakemail.com">f2d@fakemail.com</a></p>
+            </div>
+
+        </div>
+
+        <div class="footer-hoejre">
+
+            <div class="footer-socialemedier">
+
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-instagram"></i></a>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/simple-parallax-js@5.0.2/dist/simpleParallax.min.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", getTheContent);
+
+
+        async function getTheContent() {
+            let temp = document.querySelector("template");
+            const container = document.querySelector("#container")
+            let url = "http://www.futuravisuals.dk/kea/2SEM/Eksamensprojekt/wordpress/wp-json/wp/v2/lookbook/";
+            let jsonData = await fetch(url);
+            let pods = await jsonData.json();
+
+            pods.forEach(pod => {
+                let klon = temp.cloneNode(true).content;
+                klon.querySelector(".look-titel").textContent = pod.titel;
+                klon.querySelector(".billedelook").src = pod.billede.guid;
+                klon.querySelector(".look-tekst").innerHTML = pod.content.rendered;
+
+                container.appendChild(klon);
+                console.log(pod.overskrift);
+            })
+            startPrlx();
+        }
+
+        function startPrlx() {
+
+            var image = document.querySelectorAll(".billedelook");
+            image.forEach((img) => {
+                console.log(img);
+                new simpleParallax(img, {
+                    scale: 1.8,
+                });
+            });
+        }
 
     </script>
+
+
+
 
     <script>
         let atScroll = false;
@@ -195,7 +258,6 @@
         });
 
     </script>
-    <script src="tilt.jquery.js"></script>
 </body>
 
 </html>

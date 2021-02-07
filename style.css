@@ -23,6 +23,55 @@ h2 {
 }
 
 
+
+/******** PIL *******/
+
+#arrowdown {
+    color: black;
+    z-index: 3;
+    position: absolute;
+    right: 16vw;
+    top: 70vh;
+    text-align: center;
+}
+
+.arrow {
+    font-size: 4em;
+    font-weight: 800;
+    -webkit-text-stroke: 1.5px black;
+    color: transparent;
+}
+
+.scrolltext {
+    font-size: 1em;
+}
+
+#lookbook-splash #arrowdown {
+    position: absolute;
+    right: 6vw;
+    top: 50vh;
+}
+
+/******* PIL MEDIA QUERY ******/
+
+@media (max-width: 990px) {
+    .scrolltext {
+        display: none;
+    }
+
+    .arrow {
+        position: absolute;
+        top: 15vh;
+        left: -40vw;
+    }
+
+    #lookbook-splash #arrowdown {
+        display: none;
+    }
+}
+
+/********* PIL SLUT *******/
+
 /********* FONTE ********/
 
 @font-face {
@@ -63,7 +112,7 @@ p {
     height: 90px;
     background-color: white;
     position: fixed;
-    z-index: 3;
+    z-index: 4;
 }
 
 .navbar {
@@ -300,7 +349,8 @@ p {
 
 .lookbooklink a:hover {
     text-decoration: underline;
-    color: red;
+    color: transparent;
+    -webkit-text-stroke: 2px red;
 }
 
 #containeren img:hover {
@@ -385,6 +435,7 @@ p {
     flex-wrap: wrap-reverse;
     justify-content: space-between;
     align-items: center;
+
 }
 
 .hoejreside {
@@ -398,12 +449,12 @@ p {
 
 }
 
-.venstreside {
-    padding: 20px;
-    padding-top: 0;
+#venstreside {
+    padding: 10px;
+    padding-bottom: 20px;
 }
 
-.venstreside p {
+#venstreside p {
     font-size: 1.1em;
     font-family: sans-serif;
     max-width: 600px;
@@ -440,13 +491,15 @@ p {
 /********* LOOKBOOK STYLING ********/
 
 .overskrift {
-    padding-top: 140px;
+    padding-top: 120px;
     background-color: #f7f7f7;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     text-align: center;
 }
+
+
 
 .overskriftdelto {
     -webkit-text-stroke: 3px #FF2B00;
@@ -461,8 +514,9 @@ p {
 #lookbook-splash {
     display: flex;
     background-color: #f7f7f7;
-    padding-top: 80px;
+    padding-top: 10px;
     padding-bottom: 80px;
+
 }
 
 #lookbook-video {
@@ -472,7 +526,7 @@ p {
 }
 
 #lookbook-video video {
-    width: 50%;
+    width: 65%;
     height: auto;
 }
 
@@ -520,13 +574,16 @@ p {
     background-color: #f7f7f7;
 }
 
+
 .farvedeler:nth-child(2n) .look_wrapper {
     flex-direction: row-reverse;
 }
 
+
 .farvedeler:nth-child(2n-1) {
     background-color: rgba(221, 221, 221, 0.55);
 }
+
 
 .right {
     display: flex;
@@ -536,6 +593,11 @@ p {
 
 .look-titel {
     justify-content: center;
+    font-size: 2em;
+}
+
+.look-tekst {
+    font-size: 1em;
 }
 
 
@@ -560,14 +622,20 @@ p {
         margin-bottom: 24px;
     }
 
-
-
     #lookbook-video video {
         min-width: 95%;
     }
 
+    #lookbook-splash {
+        padding-top: 40px;
+    }
+
     .overskrift h1 {
         font-size: 12vw;
+    }
+
+    #container {
+        padding-bottom: 80px;
     }
 
 }
@@ -608,6 +676,7 @@ p {
 
 .about_titel {
     justify-content: center;
+    font-size: 3em;
 }
 
 /********** ABOUT US MEDIA *******/
@@ -650,7 +719,7 @@ p {
 }
 
 .produkt_titel {
-    font-size: 1.4em;
+    font-size: 1.5em;
     margin: 15px;
 }
 
@@ -680,6 +749,11 @@ p {
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     }
 
+    .personliste {
+        padding-top: 40px;
+        padding-bottom: 0;
+    }
+
     .grid {
         margin: 0 20px;
     }
@@ -694,7 +768,42 @@ p {
     flex-direction: row-reverse;
 }
 
+#singleview .about_right {
+    max-width: 600px;
+    max-height: 800px;
+}
 
+#singleview img:hover {
+    filter: drop-shadow(0 0 1.50rem black);
+}
+
+#singleview .about_tekst {
+    font-size: 2em;
+}
+
+#singleview .about_titel {
+    font-size: 3em;
+}
+
+#singleview .punktform {
+    padding-top: 20px;
+}
+
+#singleview .farve_box {
+    padding-top: 40px;
+}
+
+/******** SINGLE VIEW MEDIA QUERIES *******/
+
+@media screen and (max-width: 900px) {
+    #singleview .fitsize {
+        padding-bottom: 40px;
+    }
+
+    #singleview .about_tekst {
+        padding-top: 20px;
+    }
+}
 
 /******** SINGLE VIEW SLUT ******/
 
@@ -706,7 +815,7 @@ footer {
 }
 
 .footeren {
-    background-color: #262320;
+    background-color: #222222;
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
     box-sizing: border-box;
     width: 100%;

@@ -4,9 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
     <title>Menu</title>
     <meta name=”robots” content=”noindex”>
     <link rel="stylesheet" href="style.css">
@@ -41,15 +41,15 @@
                     <div class="nav-item-wrapper"></div>
                 </div>
                 <div class="nav-item">
-                    <a href="lookbookzito.html">LOOKBOOK</a>
-                    <div class="nav-item-wrapper"></div>
-                </div>
-                <div class="nav-item">
-                    <a href="about_us.html">ABOUT US</a>
+                    <a href="lookbook.html">LOOKBOOK</a>
                     <div class="nav-item-wrapper"></div>
                 </div>
                 <div class="nav-item">
                     <a href="produkter.html">PRODUCTS</a>
+                    <div class="nav-item-wrapper"></div>
+                </div>
+                <div class="nav-item">
+                    <a href="about_us.html">ABOUT US</a>
                     <div class="nav-item-wrapper"></div>
                 </div>
             </div>
@@ -62,9 +62,11 @@
                 <div class="about_left">
                     <h2 class="about_titel"></h2>
                     <p class="about_tekst"></p>
+                    <p class="punktform"></p>
+                    <p class="fitsize"></p>
                 </div>
                 <div class="about_right">
-                    <img src="" alt="" class="about_billede">
+                    <img src="" alt="" class="about_billede" data-tilt>
                 </div>
             </div>
         </div>
@@ -80,7 +82,7 @@
             <p class="footer-links">
                 <a href="index.html">Home</a>
                 ·
-                <a href="lookbookzito.html">Lookbook</a>
+                <a href="lookbook.html">Lookbook</a>
                 ·
                 <a href="produkter.html">Products</a>
                 ·
@@ -120,7 +122,7 @@
 
     </footer>
 
-
+    <script src="tilt.jquery.js"></script>
 
     <script>
         let urlParams = new URLSearchParams(window.location.search);
@@ -136,10 +138,16 @@
             pods = await jsonData.json();
             document.querySelector(".about_titel").textContent = pods.titel;
             document.querySelector(".about_tekst").textContent = pods.shoptekst;
+            document.querySelector(".punktform").textContent = pods.punktform;
+            document.querySelector(".fitsize").textContent = pods.fitsize;
             document.querySelector(".about_billede").src = pods.billede.guid;
         }
 
+    </script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
+
+    <script>
         var t1 = new TimelineMax({
             paused: true
         });
