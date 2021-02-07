@@ -15,7 +15,7 @@ h1 {
 }
 
 h2 {
-    -webkit-text-stroke: 1.5px red;
+    -webkit-text-stroke: 1.5px #FF2B00;
     color: transparent;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -31,6 +31,11 @@ h2 {
         url('fonts/hanson-bold-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
+}
+
+p {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
 }
 
 /****** NAV LOGO *****/
@@ -236,7 +241,7 @@ h2 {
     margin: 0 auto;
 }
 
-#splash img {
+#splash video {
     max-width: 600px;
     height: auto;
 
@@ -298,11 +303,18 @@ h2 {
     color: red;
 }
 
+#containeren img:hover {
+    transform: scale(1.1);
+    transition: 0.5s;
+    -webkit-filter: filter: invert(23%) sepia(74%) saturate(1500%) hue-rotate(352deg) brightness(89%) contrast(200%);
+    filter: invert(23%) sepia(74%) saturate(1500%) hue-rotate(352deg) brightness(89%) contrast(200%);
+    cursor: pointer;
+}
 
 /******** SPLASH MEDIA QUERIES *******/
 
 @media (max-width: 990px) {
-    #splash img {
+    #splash video {
         max-width: 350px;
     }
 
@@ -431,24 +443,26 @@ h2 {
     padding-top: 140px;
     background-color: #f7f7f7;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
+    text-align: center;
 }
 
 .overskriftdelto {
-    -webkit-text-stroke: 2px red;
+    -webkit-text-stroke: 3px #FF2B00;
     color: transparent;
 }
 
 .overskriftdelto:hover {
-    filter: drop-shadow(0 0 0.50rem crimson);
+    filter: drop-shadow(0 0 0.50rem #FF2B00);
     transition: 0.5s;
 }
 
 #lookbook-splash {
     display: flex;
     background-color: #f7f7f7;
-    padding-top: 40px;
-    padding-bottom: 40px;
+    padding-top: 80px;
+    padding-bottom: 80px;
 }
 
 #lookbook-video {
@@ -477,7 +491,8 @@ h2 {
 
 .billedelook {
     height: auto;
-    max-width: 450px;
+    width: 100%;
+    max-width: 400px;
     display: flex;
 }
 
@@ -495,22 +510,22 @@ h2 {
     width: 100%;
 }
 
-.farvedeler:nth-child(n+2) .look_wrapper {
-    padding-top: 40px;
-    padding-bottom: 40px;
+.farvedeler .look_wrapper {
+    padding-top: 80px;
+    padding-bottom: 80px;
 }
 
 
 .farvedeler:nth-child(even) {
-    background-color: rgba(221, 221, 221, 0.55);
+    background-color: #f7f7f7;
 }
 
-.farvedeler:nth-child(3) .look_wrapper {
+.farvedeler:nth-child(2n) .look_wrapper {
     flex-direction: row-reverse;
 }
 
-.farvedeler:nth-child(3) {
-    background-color: #f7f7f7;
+.farvedeler:nth-child(2n-1) {
+    background-color: rgba(221, 221, 221, 0.55);
 }
 
 .right {
@@ -531,11 +546,326 @@ h2 {
         justify-content: center;
     }
 
-    .billedelook {
-        max-width: 350px;
+    .farvedeler .look_wrapper {
+        padding-top: 20px;
+        padding-bottom: 10px;
     }
 
-    #lookbook-video video {
-        min-width: 90%;
+    .look_wrapper {
+        margin-left: 10px;
+        margin-right: 10px;
     }
+
+    .right {
+        margin-bottom: 24px;
+    }
+
+
+
+    #lookbook-video video {
+        min-width: 95%;
+    }
+
+    .overskrift h1 {
+        font-size: 12vw;
+    }
+
+}
+
+
+
+/********** ABOUT US *******/
+
+.farve_box {
+    display: flex;
+    width: 100%;
+    background-color: #f7f7f7;
+}
+
+.about_wrapper {
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 1400px;
+    flex-wrap: wrap-reverse;
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.about_billede {
+    height: auto;
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+}
+
+.about_left {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+}
+
+.about_titel {
+    justify-content: center;
+}
+
+/********** ABOUT US MEDIA *******/
+
+@media (max-width: 900px) {
+    .about_wrapper {
+        padding-top: 20px;
+        padding-bottom: 10px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .about_right {
+        margin-bottom: 24px;
+    }
+
+}
+
+/********** PRODUKTER *******/
+
+.produkt_billede {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+}
+
+.personliste #container {
+    text-align: center;
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.personliste {
+    background-color: #f7f7f7;
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.produkt_titel {
+    font-size: 1.4em;
+    margin: 15px;
+}
+
+.grid {
+    background-color: rgba(221, 221, 221, 0.55);
+    padding: 0 20px;
+    border-radius: 6px;
+}
+
+.grid:hover {
+    background-color: white;
+    transform: scale(1.01);
+    transition-duration: 0.3s;
+}
+
+.kort {
+    font-weight: 400;
+    font-size: 0.9em;
+}
+
+.pris {
+    margin: 15px;
+}
+
+@media screen and (max-width: 900px) {
+    .personliste #container {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+
+    .grid {
+        margin: 0 20px;
+    }
+}
+
+/******* PRODUKTER SLUT *******/
+
+
+/******* SINGLE VIEW *******/
+
+#singleview .about_wrapper {
+    flex-direction: row-reverse;
+}
+
+
+
+/******** SINGLE VIEW SLUT ******/
+
+
+/********** FOOTER *******/
+
+footer {
+    position: sticky;
+}
+
+.footeren {
+    background-color: #262320;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+    box-sizing: border-box;
+    width: 100%;
+    text-align: left;
+    font: bold 16px sans-serif;
+    padding: 55px 50px;
+}
+
+.footeren .footer-venstre,
+.footeren .footer-midt,
+.footeren .footer-hoejre {
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+
+}
+
+.footeren .footer-venstre {
+    width: 40%;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.footeren h3 {
+    color: #ffffff;
+    margin: 0;
+    font-family: 'hansonbold';
+    font-size: 2em;
+
+}
+
+.footeren h3 span {
+    color: #5383d3;
+
+}
+
+
+.footeren .footer-links {
+    color: #ffffff;
+    margin: 20px 0 12px;
+    padding: 0;
+
+}
+
+.footeren .footer-links a {
+    display: inline-block;
+    line-height: 1.8;
+    text-decoration: none;
+    color: inherit;
+
+}
+
+.footeren .footer-links a:hover {
+    text-decoration: underline;
+}
+
+
+.footeren .footer-midt {
+    width: 35%;
+}
+
+.footeren .footer-midt i {
+    background-color: #33383b;
+    color: #ffffff;
+    font-size: 25px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 42px;
+    margin: 10px 15px;
+    vertical-align: middle;
+}
+
+.footeren .footer-midt i.fa-envelope {
+    font-size: 17px;
+    line-height: 38px;
+}
+
+.footeren .footer-midt p {
+    display: inline-block;
+    color: #ffffff;
+    vertical-align: middle;
+    margin: 0;
+}
+
+.footeren .footer-midt p span {
+    display: block;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 2;
+}
+
+.footeren .footer-midt p a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.footeren .footer-hoejre {
+    width: 20%;
+    justify-content: space-between;
+}
+
+.footeren .footer-socialemedier {
+    margin-top: 25px;
+}
+
+.footeren .footer-socialemedier a {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    border-radius: 2px;
+
+    font-size: 4em;
+    color: #ffffff;
+    text-align: center;
+
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.footeren .footer-socialemedier a:hover {
+    transform: scale(1.1);
+    transition: 0.5s;
+    -webkit-filter: invert(35%) sepia(86%) saturate(7250%) hue-rotate(9deg) brightness(102%) contrast(119%);
+    filter: invert(35%) sepia(86%) saturate(7250%) hue-rotate(9deg) brightness(102%) contrast(119%);
+    cursor: pointer;
+}
+
+@media (max-width: 900px) {
+
+    .footeren {
+        font: bold 14px sans-serif;
+        padding: 10px;
+
+    }
+
+    .footeren .footer-venstre,
+    .footeren .footer-midt,
+    .footeren .footer-hoejre {
+        display: block;
+        width: 100%;
+        margin-bottom: 0px;
+        text-align: center;
+    }
+
+    .footeren .footer-midt i {
+        margin-left: 0;
+    }
+
+    .main {
+        line-height: normal;
+        font-size: auto;
+    }
+
+    .footeren .footer-socialemedier a {
+        font-size: 3em;
+    }
+
 }
