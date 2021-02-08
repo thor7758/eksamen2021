@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="DA">
+<html lang="EN">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <title>Produkter</title>
+    <title>F2D - Danish Streetwear Brand - Products</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 </head>
@@ -14,7 +14,7 @@
 
     <div class="header">
         <a href="index.html">
-            <div class="etlogo"><img src="f2dawg.png">
+            <div class="etlogo"><img src="f2dawg.png" alt="f2dlogo">
             </div>
         </a>
         <!-- nav  -->
@@ -126,27 +126,33 @@
 
 
     <script>
+        // Kører fuktionen getTheContent når HTML'en er loadet
         document.addEventListener("DOMContentLoaded", getTheContent);
 
-
+        // Funktion der henter produkterne ned
         async function getTheContent() {
+            // Definerer variabler WP-backend hentes som JSON-data
             let temp = document.querySelector("template");
             const container = document.querySelector("#container")
             let url = "http://www.futuravisuals.dk/kea/2SEM/Eksamensprojekt/wordpress/wp-json/wp/v2/produkter/";
             let jsonData = await fetch(url);
             let pods = await jsonData.json();
 
+            // For hvert post gøres dette
             pods.forEach(pod => {
+                // Kloner HTML templaten
                 let klon = temp.cloneNode(true).content;
+                // Indsætter endpoints i tilhørende HTML tags i vores template
                 klon.querySelector(".produkt_titel").textContent = pod.titel;
                 klon.querySelector(".produkt_billede").src = pod.billede.guid;
                 klon.querySelector(".pris").textContent = pod.pris;
                 klon.querySelector(".materiale").textContent = pod.punktform;
 
-                console.log(pod.overskrift);
+                //Tilføjer mulighed for at klikke på et produkt og åbne singleview version.
                 klon.querySelector(".grid").addEventListener("click", function() {
                     produktClick(pod.id)
                 });
+                // Efter templatet er blevet fyldt sættes det ind i HTML'en
                 container.appendChild(klon);
 
             });

@@ -320,7 +320,7 @@ p {
     display: inline-block;
     line-height: 1em;
     color: transparent;
-    -webkit-text-stroke: 2px red;
+    -webkit-text-stroke: 2px #FF2B00;
 }
 
 /******* FORSIDE EKSTRA ********/
@@ -350,13 +350,13 @@ p {
 .lookbooklink a:hover {
     text-decoration: underline;
     color: transparent;
-    -webkit-text-stroke: 2px red;
+    -webkit-text-stroke: 2px #FF2B00;
 }
 
 #containeren img:hover {
     transform: scale(1.1);
     transition: 0.5s;
-    -webkit-filter: filter: invert(23%) sepia(74%) saturate(1500%) hue-rotate(352deg) brightness(89%) contrast(200%);
+    -webkit-filter: invert(23%) sepia(74%) saturate(1500%) hue-rotate(352deg) brightness(89%) contrast(200%);
     filter: invert(23%) sepia(74%) saturate(1500%) hue-rotate(352deg) brightness(89%) contrast(200%);
     cursor: pointer;
 }
@@ -456,7 +456,7 @@ p {
 
 #venstreside p {
     font-size: 1.1em;
-    font-family: sans-serif;
+    font-family: 'Poppins';
     max-width: 600px;
 }
 
@@ -970,7 +970,6 @@ footer {
 
     .main {
         line-height: normal;
-        font-size: auto;
     }
 
     .footeren .footer-socialemedier a {
